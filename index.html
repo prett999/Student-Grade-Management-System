@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A student grade management website demonstrating arrays in a real-world application.">
+  <title>Student Grade Manager | Arrays in Action</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <a class="brand" href="#">Array<span>Lab</span></a>
+      <a class="nav-link" href="#about">How arrays work</a>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">REAL-WORLD APPLICATION OF ARRAYS</p>
+      <h1>Student Grade<br><span>Management System</span></h1>
+      <p class="hero-copy">Organize student scores, calculate class performance, and see how arrays make data easier to manage.</p>
+      <a class="primary-link" href="#manager">Try the app <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="art-card card-one"><span class="art-icon">▤</span><strong>Student records</strong><small>Stored in arrays</small></div>
+      <div class="art-card card-two"><span class="art-icon green">↗</span><strong>Class average</strong><small>Calculated instantly</small></div>
+      <div class="art-orbit"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="manager" class="section manager-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">INTERACTIVE DEMO</p><h2>Manage student scores</h2></div>
+        <p class="section-description">Add students and explore the results. Example records are included so you can test the app immediately.</p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-label">Students</span><strong id="studentCount">4</strong><span class="stat-note">records in the array</span></article>
+        <article class="stat-card"><span class="stat-label">Class average</span><strong id="averageScore">83.8%</strong><span class="stat-note">average of all scores</span></article>
+        <article class="stat-card"><span class="stat-label">Highest score</span><strong id="highestScore">96</strong><span class="stat-note" id="highestName">Top performance</span></article>
+        <article class="stat-card"><span class="stat-label">Lowest score</span><strong id="lowestScore">72</strong><span class="stat-note" id="lowestName">Needs more practice</span></article>
+      </div>
+
+      <div class="workspace">
+        <section class="panel form-panel">
+          <div class="panel-heading"><div><p class="eyebrow">NEW RECORD</p><h3>Add a student</h3></div><span class="panel-symbol">＋</span></div>
+          <form id="studentForm">
+            <label for="studentName">Student name</label>
+            <input id="studentName" name="studentName" type="text" maxlength="60" placeholder="e.g. Ama Mensah" required>
+            <label for="studentScore">Score <span>(0–100)</span></label>
+            <input id="studentScore" name="studentScore" type="number" min="0" max="100" step="1" placeholder="e.g. 85" required>
+            <button class="primary-button" type="submit">Add student <span>＋</span></button>
+            <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+          <div class="array-note"><span class="note-dot"></span><p><strong>Array in action</strong><br>Each new student is added to the names and scores arrays at the same index.</p></div>
+        </section>
+
+        <section class="panel table-panel">
+          <div class="panel-heading table-heading"><div><p class="eyebrow">CLASS ROSTER</p><h3>Student records</h3></div><button id="resetButton" class="text-button" type="button">Reset demo</button></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Student</th><th>Score</th><th>Performance</th><th><span class="sr-only">Action</span></th></tr></thead>
+              <tbody id="studentTableBody"></tbody>
+            </table>
+          </div>
+          <p id="emptyState" class="empty-state" hidden>No student records yet. Add a student to get started.</p>
+          <p class="table-footnote">Scores are stored in arrays in your browser session. This demo does not save data to a server.</p>
+        </section>
+      </div>
+    </section>
+
+    <section id="about" class="section learning-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">LEARN THE CONCEPT</p><h2>How arrays power this app</h2></div>
+        <p class="section-description">An array stores several values of the same general kind under one variable name, with each value available by its index.</p>
+      </div>
+      <div class="learning-grid">
+        <article class="learn-card"><div class="learn-number">01</div><h3>Store related values</h3><p>Two arrays hold the class data: one for student names and one for their scores.</p><code>const names = ["Ama", "Kojo"];</code><code>const scores = [90, 82];</code></article>
+        <article class="learn-card"><div class="learn-number">02</div><h3>Access by index</h3><p>The same index connects a student to their score. JavaScript arrays start counting at index 0.</p><code>names[0] // "Ama"</code><code>scores[0] // 90</code></article>
+        <article class="learn-card"><div class="learn-number">03</div><h3>Process with loops</h3><p>Loops visit each score to calculate the total, average, highest, and lowest result.</p><code>average = total / scores.length;</code></article>
+      </div>
+      <div class="why-box">
+        <div><p class="eyebrow">WHY ARRAYS ARE USEFUL</p><h3>Less repetition. Easier processing.</h3></div>
+        <ul><li>Keep related information organized.</li><li>Use loops to process many records.</li><li>Calculate summaries without separate variables for each student.</li><li>Make it easier to search, compare, and update values.</li></ul>
+      </div>
+      <div class="applications">
+        <p class="eyebrow">OTHER REAL-WORLD EXAMPLES</p>
+        <div class="application-list"><span>Shop inventory</span><span>Weather readings</span><span>Game scores</span><span>Bank transactions</span><span>Image pixels</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#">Array<span>Lab</span></a><p>Student Grade Management System · Built to demonstrate arrays</p></footer>
+  <script src="script.js"></script>
+</body>
+</html>
